@@ -1,6 +1,7 @@
 import type {Metadata} from "next";
 import {Providers} from "./providers";
 import "./globals.css";
+import ThemeSwitcher from "./ui/theme-switcher";
 
 export const metadata: Metadata = {
    title: "itzramn",
@@ -14,8 +15,13 @@ export default function RootLayout({
 }>) {
    return (
       <html lang="en" className="dark">
-         <body>
-            <Providers>{children}</Providers>
+         <body className="bg-background">
+            <Providers>
+               {children}
+               <div className="absolute bottom-2 right-2 md:bottom-6 md:right-6">
+                  <ThemeSwitcher />
+               </div>
+            </Providers>
          </body>
       </html>
    );
